@@ -10,10 +10,12 @@ stages:
 default:
   before_script:
     - apt-get update -y
+    - apt-get install -y wget curl zip unzip
     - curl -s "https://get.sdkman.io" | bash
     - source "$HOME/.sdkman/bin/sdkman-init.sh"
     - sdk version
     - sdk install java 11.0.7-zulu
+    - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc
 
 build:
   stage: build
