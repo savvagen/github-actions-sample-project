@@ -9,12 +9,28 @@ stages:
 
 default:
   before_script:
+    # Install Java
     - apt-get update -y
-    - apt-get install -y wget curl zip unzip
+    - apt-get install -y wget curl zip unzip sudo
     - curl -s "https://get.sdkman.io" | bash
     - source "$HOME/.sdkman/bin/sdkman-init.sh"
     - sdk version
     - sdk install java 11.0.7-zulu
+    # Install Docker
+    - apt-get install -y \
+      apt-transport-https \
+      ca-certificates \
+      curl \
+      gnupg-agent \
+      software-properties-common
+    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - sudo add-apt-repository \
+      "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) \
+      stable"
+    - sudo apt-get update
+    - sudo apt-get install docker-ce docker-ce-cli containerd.io
+    # Run Selenoid
     - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc
 
 build:
