@@ -2,12 +2,15 @@ package com.example.api;
 
 import com.example.api.models.ResponseCode;
 import com.example.api.models.User;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+@Tag("api")
 public class RetrofitTest extends BaseApiTest {
 
     @Test

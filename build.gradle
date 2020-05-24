@@ -65,7 +65,12 @@ task allureAggregatedReport(type: AllureReport) {
 
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeTags 'api'
+        excludeTags 'ui'
+        includeEngines 'junit-jupiter'
+        // excludeEngines 'junit-vintage'
+    }
     testLogging {
         events "passed", "skipped", "failed"
     }
