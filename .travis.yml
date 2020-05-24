@@ -10,3 +10,6 @@ jdk:
 
 script:
   - ./gradlew clean test
+
+#before_install:
+#  -
