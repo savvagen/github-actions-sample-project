@@ -2,8 +2,14 @@ dist: trusty
 
 language: java
 
+addons:
+  chrome: stable
+
 jdk:
   - openjdk11
 
 script:
   - ./gradlew clean test
+
+before_install:
+  - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc
