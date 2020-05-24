@@ -3,6 +3,16 @@ image: ubuntu:16.04
 stages:
   - build
   - test
+# - ui-tests
+# - api-tests
+# - artifacts
+
+default:
+  before_script:
+    - curl -s "https://get.sdkman.io" | bash
+    - source "$HOME/.sdkman/bin/sdkman-init.sh"
+    - sdk version
+    - sdk install java 11.0.7-zulu
 
 build:
   stage: build
