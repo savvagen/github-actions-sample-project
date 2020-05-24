@@ -66,8 +66,8 @@ task allureAggregatedReport(type: AllureReport) {
 
 test {
     useJUnitPlatform {
-        includeTags 'api'
-        excludeTags 'ui'
+        includeTags 'api', 'ui'
+        // excludeTags 'ui'
         includeEngines 'junit-jupiter'
         // excludeEngines 'junit-vintage'
     }
