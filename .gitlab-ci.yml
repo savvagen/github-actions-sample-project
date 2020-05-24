@@ -23,8 +23,10 @@ default:
     - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
     - sudo apt-get update
     - sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    - sudo groupadd docker || true; sudo usermod -aG docker $USER
+    - newgrp docker
     # Run Selenoid
-    - sudo curl -s https://aerokube.com/cm/bash | bash && sudo ./cm selenoid start --vnc
+    - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc
 
 build:
   stage: build
