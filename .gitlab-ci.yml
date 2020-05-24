@@ -1,4 +1,4 @@
-image: ubuntu:16.04
+image: ubuntu:16.04 # 18.04
 
 stages:
   - build
@@ -23,6 +23,9 @@ default:
     - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
     - sudo apt-get update
     - sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    - sudo groupadd docker
+    - sudo usermod -aG docker $USER
+    - newgrp docker
     # Run Selenoid
     - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc
 
