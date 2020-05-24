@@ -17,6 +17,7 @@ public class LoginTests {
     @BeforeAll
     public static void setup(){
         Configuration.baseUrl = "https://react-redux.realworld.io";
+        Configuration.headless = true;
     }
 
 
