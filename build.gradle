@@ -18,6 +18,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
 
+    compile group: 'com.codeborne', name: 'selenide', version: '5.12.0'
+
+
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.0'
 
@@ -73,4 +76,9 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+clean.doFirst {
+    delete "${rootDir}/.allure"
+    delete "${rootDir}/allure-report"
 }

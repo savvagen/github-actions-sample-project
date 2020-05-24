@@ -1,7 +1,6 @@
 package com.example.api;
 
-import com.example.models.ResponseCode;
-import com.example.services.UserService;
+import com.example.api.services.UserService;
 import com.github.javafaker.Faker;
 import io.qameta.allure.okhttp3.AllureOkHttp3;
 import okhttp3.OkHttpClient;

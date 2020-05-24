@@ -1,8 +1,7 @@
 package com.example.api;
 
-import com.example.services.UserService;
-import com.example.models.ResponseCode;
-import com.example.models.User;
+import com.example.api.models.ResponseCode;
+import com.example.api.models.User;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package com.example.services;
+package com.example.api.services;
 
-import com.example.models.ResponseCode;
-import com.example.models.User;
+import com.example.api.models.ResponseCode;
+import com.example.api.models.User;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import retrofit2.Call;
