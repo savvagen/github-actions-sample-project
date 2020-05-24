@@ -11,5 +11,5 @@ jdk:
 script:
   - ./gradlew clean test
 
-#before_install:
-#  -
+before_install:
+  - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc

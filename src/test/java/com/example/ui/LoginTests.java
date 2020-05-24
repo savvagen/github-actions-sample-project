@@ -17,7 +17,8 @@ public class LoginTests {
     @BeforeAll
     public static void setup(){
         Configuration.baseUrl = "https://react-redux.realworld.io";
-        Configuration.headless = true;
+        //Configuration.headless = true;
+        Configuration.remote = "http://localhost:4444/wd/hub";
     }
 
 
