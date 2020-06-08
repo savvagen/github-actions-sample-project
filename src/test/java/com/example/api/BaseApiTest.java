@@ -40,6 +40,7 @@ public class BaseApiTest {
                 .baseUrl("https://petstore.swagger.io/")
                 .client(httpClient.build())
                 .build();
+
         petService = retrofit.create(PetService.class);
         userService = retrofit.create(UserService.class);
 

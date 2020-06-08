@@ -1,11 +1,8 @@
 package com.example.api;
 
-import com.example.api.models.Pet;
-import com.example.api.models.ResponseCode;
 import com.example.api.models.User;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import retrofit2.Response;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +29,7 @@ public class RetrofitTest extends BaseApiTest {
 
     @Test
     public void shouldGetFirstPet() throws IOException {
-        var response = userService.getPet(1).execute();
+        var response = petService.getPet(1).execute();
         assertAll(
                 ()-> assertNotNull(response.body()),
                 ()-> assertEquals(200, response.code()),
