@@ -1,4 +1,4 @@
-image:      # ubuntu:18.04 # 16.04 #
+image: savvagenchevskiy/gitlab_runner:latest # ubuntu:18.04 # 16.04 #
 
 stages:
   - build
