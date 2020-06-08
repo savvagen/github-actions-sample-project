@@ -18,10 +18,10 @@ public class LoginPage extends WebPage {
         this.title = "";
     }
 
-
     @Step
     public LoginPage open(){
-        return Selenide.open(this.url, this.getClass());
+        Selenide.open(this.url);
+        return this;
     }
 
     @Step

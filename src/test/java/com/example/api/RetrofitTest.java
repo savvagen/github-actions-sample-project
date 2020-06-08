@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,13 +18,13 @@ public class RetrofitTest extends BaseApiTest {
 
     @Test
     public void shouldCreateUser() throws IOException {
-        var user = User.buildUser().id(0).username(faker.name().username())
+        User user = User.buildUser().id(0).username(faker.name().username())
                 .firstName(faker.name().firstName())
                 .lastName(faker.name().lastName())
                 .email(faker.internet().emailAddress())
                 .password(faker.internet().password(6, 10, true))
                 .userStatus(faker.random().nextInt(10)).build();
-        var response = userService.createUser(user).execute();
+        Response<ResponseCode> response = userService.createUser(user).execute();
         assertAll(
                 ()-> assertNotNull(response.body()),
                 ()-> assertEquals(200, response.code()),
@@ -33,11 +34,14 @@ public class RetrofitTest extends BaseApiTest {
 
     @Test
     public void shouldGetFirstPet() throws IOException {
-        var response = petService.getPet(1).execute();
+        Pet myPet = Pet.buildPet().name("test").status("available").build();
+        Pet expected = petService.createPet(myPet).execute().body();
+        Response<Pet> response = petService.getPet(expected.id).execute();
         assertAll(
                 ()-> assertNotNull(response.body()),
                 ()-> assertEquals(200, response.code()),
-                ()-> assertEquals(1, response.body().getId())
+                ()-> assertEquals(expected.id, response.body().getId()),
+                ()-> assertEquals(expected.name, response.body().getName())
         );
     }
 
