@@ -9,12 +9,7 @@ theme:build:
   - ".gitignore"
 
 theme:core:
-  - "src/main/java/**"
-  - "src/main/kotlin/**"
-  - "src/main/resources/**"
+  - "src/main/*"
 
-theme:tests:
-  - "src/test/java/**"
-  - "src/test/kotlin/**"
-  - "src/test/resources/**"
-
+theme:test:
+  - "src/test/*"

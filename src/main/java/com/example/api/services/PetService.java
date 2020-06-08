@@ -1,6 +1,8 @@
 package com.example.api.services;
 
 import com.example.api.models.Pet;
+import com.example.api.models.ResponseCode;
+import com.example.api.models.User;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import retrofit2.Call;
@@ -15,6 +17,14 @@ public interface PetService {
             "Content-Type: application/json"
     })
     @GET("/v2/pet/{petId}")
-    Call<Pet> getPet(@Path("petId") Integer id);
+    Call<Pet> getPet(@Path("petId") long id);
 
+    @Step("Create Pet")
+    @Description("Should Create Pet in pet store")
+    @Headers({
+            "accept: application/json",
+            "Content-Type: application/json"
+    })
+    @POST("/v2/pet")
+    Call<Pet> createPet(@Body Pet user);
 }
