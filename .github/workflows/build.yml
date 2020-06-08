@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        #java: [ 8.0.192, 11.0.7 ] # Setup 2 parallel jobs on both java versions
-        java: [ 11.0.3 ]
+        #java: [ 8.0.192, 11.0.3 ] # Setup 2 parallel jobs on both java versions
+        java: [ 8.0.192 ]
     steps:
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v1
