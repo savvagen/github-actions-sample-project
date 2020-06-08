@@ -1,15 +1,19 @@
 FROM ubuntu:18.04
 
+MAINTAINER Savva Genchevskiy
+
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \
     && apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common \
-    && apt-get -y install wget curl zip unzip sudo
+    && apt-get -y install wget curl zip unzip \
+    && apt-get install -y apt-utils net-tools \
+    && apt-get install -y sudo \
+    && apt-get install -y --reinstall systemd
 
-# Install Docker
-RUN apt-get update \
-    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
-    && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable" \
-    && apt-get update \
-    && apt-get install -y docker-ce docker-ce-cli containerd.io
+# Install Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 #SHELL ["/bin/bash", "-c"]
 # Install OpenJDK-8
@@ -37,6 +41,9 @@ RUN apt-get update \
 
 EXPOSE 5901
 
+ENTRYPOINT ["/usr/bin/env", "bash", "-c"]
+
+
 #ENTRYPOINT ["/bin/bash", "-c"]
 
-CMD ["/bin/bash"]
+#CMD ["/bin/bash"]
