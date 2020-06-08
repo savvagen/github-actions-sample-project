@@ -27,7 +27,7 @@ public class LoginTests {
 
     @Test
     public void shouldLogin(){
-        var loginPage = new LoginPage().open()
+        LoginPage loginPage = new LoginPage().open()
                 .typeLogin("savva.genchevskiy@gmail.com")
                 .typePassword("test");
         loginPage.passwordField.pressEnter();
