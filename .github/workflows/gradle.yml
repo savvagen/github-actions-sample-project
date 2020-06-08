@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strrategy:
+    strategy:
       matrix:
         java: [ 8.0.192, 11.0.7 ]
 
