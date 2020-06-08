@@ -17,13 +17,13 @@ public class RetrofitTest extends BaseApiTest {
 
     @Test
     public void shouldCreateUser() throws IOException {
-        User user = User.buildUser().id(0).username(faker.name().username())
+        var user = User.buildUser().id(0).username(faker.name().username())
                 .firstName(faker.name().firstName())
                 .lastName(faker.name().lastName())
                 .email(faker.internet().emailAddress())
                 .password(faker.internet().password(6, 10, true))
                 .userStatus(faker.random().nextInt(10)).build();
-        Response<ResponseCode> response = userService.createUser(user).execute();
+        var response = userService.createUser(user).execute();
         assertAll(
                 ()-> assertNotNull(response.body()),
                 ()-> assertEquals(200, response.code()),
