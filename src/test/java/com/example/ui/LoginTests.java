@@ -2,6 +2,8 @@ package com.example.ui;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.example.ui.drivers.ChromeDriverProvider;
+import com.example.ui.pages.LoginPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,16 +19,18 @@ public class LoginTests {
     public static void setup(){
         Configuration.baseUrl = "https://react-redux.realworld.io";
         Configuration.headless = true;
-        //Configuration.browser = "com.example.ui.ChromeDriverProvider";
+        Configuration.browser = ChromeDriverProvider.class.getName();
+        //Configuration.browser = "com.example.ui.drivers.ChromeDriverProvider";
         //Configuration.remote = "http://127.0.0.1:4444/wd/hub";
     }
 
 
     @Test
     public void shouldLogin(){
-        open("/#/login");
-        $("input[type='email']").setValue("savva.genchevskiy@gmail.com");
-        $("input[type='password']").setValue("test").pressEnter();
-        $(".error-messages > li").shouldBe(Condition.visible).shouldHave(Condition.text("email or password is invalid"));
+        var loginPage = new LoginPage().open()
+                .typeLogin("savva.genchevskiy@gmail.com")
+                .typePassword("test");
+        loginPage.passwordField.pressEnter();
+        loginPage.errorMessage.shouldBe(Condition.visible).shouldHave(Condition.text("email or password is invalid"));
     }
 }
