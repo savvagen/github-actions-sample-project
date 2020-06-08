@@ -39,11 +39,10 @@ RUN apt-get update \
     && apt-get install -y gradle
 
 
-EXPOSE 5901
+#EXPOSE 5901
 
-ENTRYPOINT ["/usr/bin/env", "bash", "-c"]
+#ENTRYPOINT ["/usr/bin/env", "bash", "-c"]
 
-
-#ENTRYPOINT ["/bin/bash", "-c"]
+ENTRYPOINT ["/bin/sh", "-c"]
 
 #CMD ["/bin/bash"]
