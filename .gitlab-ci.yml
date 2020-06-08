@@ -20,8 +20,9 @@ build:
     - ./gradlew clean assemble
 
 ui-tests:
-  tags:
-    - home
+# Run on local gitlab-runner with tag: home
+#  tags:
+#    - home
   stage: test
   script:
     - ./gradlew test allureReport
