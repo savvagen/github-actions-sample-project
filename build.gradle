@@ -87,3 +87,7 @@ clean.doFirst {
     delete "${rootDir}/.allure"
     delete "${rootDir}/allure-report"
 }
+
+wrapper {
+    gradleVersion = "6.2"
+}
