@@ -1,5 +1,6 @@
 package com.example.api;
 
+import com.example.api.services.PetService;
 import com.example.api.services.UserService;
 import com.github.javafaker.Faker;
 import io.qameta.allure.okhttp3.AllureOkHttp3;
@@ -17,6 +18,7 @@ public class BaseApiTest {
 
     public static Retrofit retrofit;
     public static UserService userService;
+    public static PetService petService;
     public static Faker faker;
 
     public static OkHttpClient.Builder httpClient;
@@ -38,7 +40,10 @@ public class BaseApiTest {
                 .baseUrl("https://petstore.swagger.io/")
                 .client(httpClient.build())
                 .build();
+
+        petService = retrofit.create(PetService.class);
         userService = retrofit.create(UserService.class);
+
     }
 
 }

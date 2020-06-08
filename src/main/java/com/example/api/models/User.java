@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Builder(setterPrefix = "with", builderMethodName = "buildUser")
+@Builder(builderMethodName = "buildUser")
 public class User {
 
     int id;
