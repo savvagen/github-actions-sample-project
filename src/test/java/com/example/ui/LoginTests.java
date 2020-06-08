@@ -2,7 +2,6 @@ package com.example.ui;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,9 +16,9 @@ public class LoginTests {
     @BeforeAll
     public static void setup(){
         Configuration.baseUrl = "https://react-redux.realworld.io";
-        //Configuration.headless = true;
+        Configuration.headless = true;
         //Configuration.browser = "com.example.ui.ChromeDriverProvider";
-        Configuration.remote = "http://127.0.0.1:4444/wd/hub";
+        //Configuration.remote = "http://127.0.0.1:4444/wd/hub";
     }
 
 
