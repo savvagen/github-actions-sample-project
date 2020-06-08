@@ -5,11 +5,11 @@ on:
     branches: '*'
     #branches: [ master, api_test, ui_test, bug_fix ]
   pull_request:
-    branches:
-      - 'api_test'
-      - 'ui_test'
-      - 'bug_fix'
-    #branches: [ master, api_test, ui_test, bug_fix ]
+    branches: [ master, api_test, ui_test, bug_fix ]
+    #branches:
+    #  - 'api_test'
+    #  - 'ui_test'
+    #  - 'bug_fix'
 
 jobs:
   build:
