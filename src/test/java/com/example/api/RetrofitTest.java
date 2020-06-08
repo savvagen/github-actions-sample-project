@@ -33,7 +33,7 @@ public class RetrofitTest extends BaseApiTest {
 
     @Test
     public void shouldGetFirstPet() throws IOException {
-        Response<Pet> response = petService.getPet(1).execute();
+        var response = petService.getPet(1).execute();
         assertAll(
                 ()-> assertNotNull(response.body()),
                 ()-> assertEquals(200, response.code()),
