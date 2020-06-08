@@ -2,14 +2,10 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: '*'
-    #branches: [ master, api_test, ui_test, bug_fix ]
+    # branches: '*'
+    branches: [ master, api_test, ui_test, bug_fix ]
   pull_request:
-    branches:
-      - 'api_test'
-      - 'ui_test'
-      - 'bug_fix'
-    #branches: [ master, api_test, ui_test, bug_fix ]
+    branches: [ master, api_test, ui_test, bug_fix ]
 
 jobs:
   build:
@@ -17,8 +13,7 @@ jobs:
     strategy:
       matrix:
         #java: [ 8.0.192, 11.0.7 ] # Setup 2 parallel jobs on both java versions
-        java: [ 11.0.7 ]
-
+        java: [ 11.0.3 ]
     steps:
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v1

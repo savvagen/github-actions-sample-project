@@ -7,7 +7,6 @@ import com.example.ui.pages.LoginPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Selenide.*;
 
 
@@ -27,7 +26,7 @@ public class LoginTests {
 
     @Test
     public void shouldLogin(){
-        LoginPage loginPage = new LoginPage().open()
+        var loginPage = new LoginPage().open()
                 .typeLogin("savva.genchevskiy@gmail.com")
                 .typePassword("test");
         loginPage.passwordField.pressEnter();
