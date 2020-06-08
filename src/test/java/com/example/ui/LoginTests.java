@@ -19,7 +19,7 @@ public class LoginTests {
     public static void setup(){
         Configuration.baseUrl = "https://react-redux.realworld.io";
         Configuration.headless = true;
-        Configuration.browser = ChromeDriverProvider.class.getName();
+        //Configuration.browser = ChromeDriverProvider.class.getName();
         //Configuration.browser = "com.example.ui.drivers.ChromeDriverProvider";
         //Configuration.remote = "http://127.0.0.1:4444/wd/hub";
     }
