@@ -36,6 +36,11 @@ public class LoginPage extends WebPage {
         return this;
     }
 
+    public MainPage loginWith(String email, String password){
+        typeLogin(email).typePassword(password).loginFiled.pressEnter();
+        return new MainPage();
+    }
+
 
 
 }
